@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 
+
 def main():
     pg.display.set_caption("はばたけ！こうかとん")
     screen = pg.display.set_mode((800, 600))
@@ -18,7 +19,10 @@ def main():
             if event.type == pg.QUIT: return
 
         tmr += 1
-        screen.blit(bg_img, [0, 0])
+        x = tmr%1600
+        screen.blit(bg_img, [-x, 0])
+        screen.blit(bg_img, [1600-x, 0])
+        screen.blit(kk_imgs[tmr%100//50], [300, 200])
 
         pg.display.update()
         clock.tick(100)
